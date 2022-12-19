@@ -17,7 +17,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script src="{{ asset('template/dist/assets/demo/chart-area-demo.js') }}"></script>
 <script src="{{ asset('template/dist/assets/demo/chart-bar-demo.js') }}"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>        
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<script src="{{ asset('template/dist/assets/js/datatables-simple-demo.js') }}"></script>
+<script src="{{ asset('template/dist/assets/js/datatables-demo.js') }}"></script>
 </body>
 </html>

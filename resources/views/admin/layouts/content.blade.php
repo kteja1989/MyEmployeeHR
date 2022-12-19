@@ -67,7 +67,7 @@
                 <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable Example</div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="datatablesSimple" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Name</th>
