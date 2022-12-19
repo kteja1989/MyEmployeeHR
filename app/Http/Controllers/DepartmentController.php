@@ -69,6 +69,8 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         //
+        $department = Department::find($id);
+        return view('admin.department.edit',compact('department'));
     }
 
     /**
@@ -80,7 +82,11 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $department =  Department::find($id);
+        $data = $request->all();
+        $department->update($data);
+        return redirect()->route('departments.index')->with('message','Record Updated Successfully');
+
     }
 
     /**
@@ -92,5 +98,9 @@ class DepartmentController extends Controller
     public function destroy($id)
     {
         //
+        $department = Department::find($id);
+        $department->delete();
+        return redirect()->route('departments.index')->with('message','Department removed successfully');
+
     }
 }
