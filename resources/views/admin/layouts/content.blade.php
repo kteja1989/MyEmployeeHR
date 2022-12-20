@@ -8,41 +8,73 @@
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
-                        <div class="card-body">Primary Card</div>
+                        <div class="card-body">Users
+                            <p><i class="fas fa-user fa-fw" style="font-size: 100px;"></i></p>
+                        </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
+                            <a class="small text-white stretched-link" href="#" style="font-size: 18px">
+                                {{ App\Models\User::all()->count() }}
+                            </a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-warning text-white mb-4">
-                        <div class="card-body">Warning Card</div>
+                        <div class="card-body">Department
+                            <p><i class="fas fa-home" style="font-size: 100px;"></i></p>
+                        </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
+                            <a class="small text-white stretched-link" href="#" style="font-size: 18px;">
+                                {{ App\Models\Department::all()->count() }}
+                            </a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-success text-white mb-4">
-                        <div class="card-body">Success Card</div>
+                        <div class="card-body">Notice
+                            <p><i class="fas fa-envelope" style="font-size: 100px;"></i></p>
+                        </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
+                            <a class="small text-white stretched-link" href="#" style="font-size: 18px;">
+                                {{ App\Models\Notice::all()->count() }}
+                            </a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-danger text-white mb-4">
-                        <div class="card-body">Danger Card</div>
+                        <div class="card-body">Leave
+                            <p><i class="fas fa-book" style="font-size: 100px;"></i></p> 
+                        </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
+                            <a class="small text-white stretched-link" href="#" style="font-size: 18px;">
+                                {{ App\Models\Leave::all()->count() }}
+                            </a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card mb-4">
+                        <div class="card-header">Your Details</div>
+                        <div class="card-header" style="background-color: orange">Email:</div>
+                        <div class="card-header" style="background-color: orange">Address:</div>
+                        <div class="card-header" style="background-color: orange">Mobile number:</div>
+                        <div class="card-header" style="background-color: orange">Designation:</div>
+                        <div class="card-header" style="background-color: orange">Start date:</div>
+                        <div class="card-header" style="background-color: orange">Department:</div>
+                        <div class="card-header " style="background-color: orange"><p class="badge badge-success">Role:</p></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-xl-6">
                     <div class="card mb-4">
