@@ -13,7 +13,6 @@
                 {{ @method_field('PATCH') }}
                 <div class="card">
                     <div class="card-header">Update Role</div>
-
                     <div class="card-body">
                         <div class="form-group">
                             <label>Name</label>
