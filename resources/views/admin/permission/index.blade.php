@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">All Departments</li>
+                    <li class="breadcrumb-item active" aria-current="page">All Permissions</li>
                 </ol>
             </nav>
             @if (Session::has('message'))
@@ -16,7 +16,7 @@
             @endif
 
             <div class="card mb-4">
-                <div class="card-header"><i class="fas fa-table mr-1"></i>Departments</div>
+                <div class="card-header"><i class="fas fa-table mr-1"></i>Permissions</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -24,33 +24,32 @@
                                 <tr>
                                     <th>S.No</th>
                                     <th>Name</th>
-                                    <th>Description</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (count($departments)>0)
-                                @foreach ($departments as $key => $department)
+                                @if (count($permissions)>0)
+                                @foreach ($permissions as $key => $permission)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td>{{ $department->name }}</td>
-                                    <td>{{ $department->description }}</td>
+                                    <td>{{ $permission->role->name }}</td>
                                     <td>
-                                        @if(isset(auth()->user()->role->permission['name']['department']['can-edit']))
-                                        <a href="{{ route('departments.edit',[$department->id]) }}"><i class="fas fa-edit"></i></a></td>
+                                        @if(isset(auth()->user()->role->permission['name']['permission']['can-edit']))
+                                        <a href="{{ route('permissions.edit',[$permission->id]) }}"><i class="fas fa-edit"></i></a></td>
                                         @endif
                                     <td>
-                                        @if(isset(auth()->user()->role->permission['name']['department']['can-delete']))
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        @if(isset(auth()->user()->role->permission['name']['permission']['can-delete']))
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{$permission->id}}">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                         @endif
+                                    </td>
 
                                     <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal{{ $permission->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
-                                                <form action="{{ route('departments.destroy',[$department->id]) }}" method="post">@csrf
+                                                <form action="{{ route('permissions.destroy',[$permission->id]) }}" method="post">@csrf
                                                     {{ method_field('DELETE') }}
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -75,7 +74,7 @@
                                 </tr>
                                 @endforeach
                                 @else
-                                <td>No departments to display</td>
+                                <td>No permissions to display</td>
                                 @endif
                             </tbody>
                         </table>

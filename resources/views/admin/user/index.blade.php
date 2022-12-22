@@ -53,11 +53,16 @@
                                         <td>{{ $user->start_from }}</td>
                                         <td>{{ $user->address }}</td>
                                         <td>{{ $user->mobile_number }}</td>
-                                        <td><a href="{{ route('users.edit',[$user->id]) }}"><i class="fas fa-edit"></i></a></td>
                                         <td>
+                                            @if(isset(auth()->user()->role->permission['name']['user']['can-edit']))
+                                            <a href="{{ route('users.edit',[$user->id]) }}"><i class="fas fa-edit"></i></a></td>
+                                            @endif
+                                        <td>
+                                            @if(isset(auth()->user()->role->permission['name']['user']['can-delete']))
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->id }}">
                                                 <i class="fas fa-trash"></i>
                                             </a>
+                                            @endif
     
                                         <!-- Modal -->
                                             <div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
