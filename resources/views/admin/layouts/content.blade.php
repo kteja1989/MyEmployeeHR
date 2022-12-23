@@ -64,13 +64,13 @@
                 <div class="col-xl-12">
                     <div class="card mb-4">
                         <div class="card-header">Your Details</div>
-                        <div class="card-header" style="background-color: orange">Email:</div>
-                        <div class="card-header" style="background-color: orange">Address:</div>
-                        <div class="card-header" style="background-color: orange">Mobile number:</div>
-                        <div class="card-header" style="background-color: orange">Designation:</div>
-                        <div class="card-header" style="background-color: orange">Start date:</div>
-                        <div class="card-header" style="background-color: orange">Department:</div>
-                        <div class="card-header " style="background-color: orange"><p class="badge badge-success">Role:</p></div>
+                        <div class="card-header" style="background-color: orange">Email: {{ Auth::user()->email }}</div>
+                        <div class="card-header" style="background-color: orange">Address: {{ Auth::user()->address }}</div>
+                        <div class="card-header" style="background-color: orange">Mobile number: {{ Auth::user()->mobile_number }}</div>
+                        <div class="card-header" style="background-color: orange">Designation: {{ Auth::user()->designation }}</div>
+                        <div class="card-header" style="background-color: orange">Start date: {{ Auth::user()->start_from }}</div>
+                        <div class="card-header" style="background-color: orange">Department: {{ Auth::user()->department->name }}</div>
+                        <div class="card-header " style="background-color: orange"><p class="badge badge-success">Role: {{ Auth::user()->role->name }}</p></div>
                     </div>
                 </div>
             </div>
