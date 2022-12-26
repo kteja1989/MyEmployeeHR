@@ -16,7 +16,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                @if(isset(auth()->user()->role->permission['name']['department']['can-add']))    
+                                @if(isset(auth()->user()->role->permission['name']['department']['can-add']))
                                     <a class="nav-link" href="{{ route('departments.create') }}">Create</a>
                                 @endif
                                 @if(isset(auth()->user()->role->permission['name']['department']['can-list']))
@@ -75,6 +75,24 @@
                                     </div>
                                 </nav>
                             </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapsenotice" aria-expanded="false" aria-controls="">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                                Staff Notice
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+
+                            <div class="collapse" id="pagesCollapsenotice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                <!--if(isset(auth()->user()->role->permission['name']['department']['can-add']))
+                                endif
+                                if(isset(auth()->user()->role->permission['name']['department']['can-list']))
+                                endif-->
+                                    <a class="nav-link" href="{{ route('notices.create') }}">Create Notice</a>
+                                    <a class="nav-link" href="{{ route('notices.index') }}">View Notice</a>
+                                </nav>
+                            </div>
+
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
