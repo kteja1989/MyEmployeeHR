@@ -33,7 +33,7 @@ trait permissionTrait{
 			return abort(401);
 		}
 
-		//approve-reject staff leave
+		//For Approve Reject Staff Leave
 		if(!isset(auth()->user()->role->permission['name']['leave']['can-list']) && \Route::is('leaves.index')){
 			return abort(401);
 		}
@@ -45,10 +45,12 @@ trait permissionTrait{
 			return abort(401);
 		}
 
+        /*
 		//mail
 		if(!isset(auth()->user()->role->permission['name']['mail']['can-add']) && \Route::is('mails.create')){
 			return abort(401);
 		}
+        */
 
 
 	}

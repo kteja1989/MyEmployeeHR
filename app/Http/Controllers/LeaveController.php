@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Leave;
+use App\Models\User;
 
 class LeaveController extends Controller
 {
@@ -40,6 +41,19 @@ class LeaveController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'from' => 'required',
+            'to' => 'required',
+            'description' => 'required',
+            'type' => 'required'
+        ]);
+
+        $data = $request->all();
+        $data['user_id'] = auth()->user()->id;
+        $data['message'] = '';
+        $data['status'] = 0;
+        Leave::create($data);
+        return redirect()->back()->with('message','Leave Created');
     }
 
     /**
@@ -62,6 +76,8 @@ class LeaveController extends Controller
     public function edit($id)
     {
         //
+        $leave = Leave::find($id);
+        return view('admin.leave.edit',compact('leave'));
     }
 
     /**
@@ -74,6 +90,20 @@ class LeaveController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            'from' => 'required',
+            'to' => 'required',
+            'description' => 'required',
+            'type' => 'required'
+        ]);
+
+        $data = $request->all();
+        $leave = Leave::find($id);
+        $data['user_id'] = auth()->user()->id;
+        $data['message'] = '';
+        $data['status'] = 0;
+        $leave->update($data);
+        return redirect()->route('leaves.create')->with('message','Leave Updated');
     }
 
     /**
@@ -85,5 +115,19 @@ class LeaveController extends Controller
     public function destroy($id)
     {
         //
+        Leave::find($id)->delete();
+        return redirect()->route('leaves.create')->with('message','Leave Updated');
+    }
+
+    public function acceptReject(Request $request, $id){
+        $status = $request->status;
+        $message = $request->message;
+        $leave = Leave::find($id);
+        $leave->update([
+            'status' => $status,
+            'message' => $message,
+        ]);
+
+        return redirect()->route('leaves.index')->with('message','Leave Updated');
     }
 }

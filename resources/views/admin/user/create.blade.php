@@ -68,7 +68,7 @@
 
                         <div class="form-group">
                             <label>Start date</label>
-                            <input type="date" name="start_from" class="form-control @error('start_from') is-invalid @enderror" placeholder="dd-mm-yyyy" required="">
+                            <input type="date" name="start_from" class="form-control @error('start_from') is-invalid @enderror" placeholder="dd-mm-yyyy" required="" id="datepicker">
                         </div>
 
                         <div class="form-group">

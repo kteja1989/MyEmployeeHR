@@ -70,6 +70,22 @@
                                     <td><input type="checkbox" name="name[notice][can-view]" @if (isset($permission['name']['notice']['can-view']))checked @endif value="1"></td>
                                     <td><input type="checkbox" name="name[notice][can-list]" @if (isset($permission['name']['notice']['can-list']))checked @endif value="1"></td>
                                 </tr>
+                                <tr>
+                                    <td>Leave</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><input type="checkbox" name="name[leave][can-list]" @if (isset($permission['name']['leave']['can-list']))checked @endif value="1"></td>
+                                </tr>
+                                <tr>
+                                    <td>Mail</td>
+                                    <td><input type="checkbox" name="name[mail][can-list]" @if (isset($permission['name']['mail']['can-list']))checked @endif value="1"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             </tbody>
                         </table>
                         @if(isset(auth()->user()->role->permission['name']['permission']['can-edit']))
