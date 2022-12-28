@@ -24,6 +24,7 @@
                                 @endif
                                 </nav>
                             </div>
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Users
@@ -45,6 +46,7 @@
                                         @endif
                                         </nav>
                                     </div>
+
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                                         User
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -59,6 +61,7 @@
                                         @endif
                                         </nav>
                                     </div>
+
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError1" aria-expanded="false" aria-controls="pagesCollapseError1">
                                         Permissions
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -76,20 +79,33 @@
                                 </nav>
                             </div>
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapsenotice" aria-expanded="false" aria-controls="">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapsenotice" aria-expanded="false" aria-controls="pagesCollapsenotice">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Staff Notice
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-
-                            <div class="collapse" id="pagesCollapsenotice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="pagesCollapsenotice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                <!--if(isset(auth()->user()->role->permission['name']['department']['can-add']))
-                                endif
-                                if(isset(auth()->user()->role->permission['name']['department']['can-list']))
-                                endif-->
+                                @if(isset(auth()->user()->role->permission['name']['department']['can-add']))
                                     <a class="nav-link" href="{{ route('notices.create') }}">Create Notice</a>
+                                @endif
+                                @if(isset(auth()->user()->role->permission['name']['department']['can-list']))
                                     <a class="nav-link" href="{{ route('notices.index') }}">View Notice</a>
+                                @endif
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="" data-bs-toggle="collapse" data-bs-target="#pagesCollapseLeave" aria-expanded="false" aria-controls="pagesCollapseLeave">
+                                <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>
+                                Staff Leave
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="pagesCollapseLeave" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('leaves.create') }}">Create Leave</a>
+                                @if (isset(auth()->user()->role->permission['name']['leave']['can-list']))
+                                    <a class="nav-link" href="{{ route('leaves.index') }}">Approve Leave</a>
+                                @endif
                                 </nav>
                             </div>
 
